@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Perinatal Oral Health Portal</title>
+<link rel="icon" href="data:,">
+<style>
+:root { --fg:#111; --bg:#fff; --muted:#555; --brand:#145a32; }
+* { box-sizing: border-box; }
+body { 
+        margin:0; 
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+        color:var(--fg); 
+        background:var(--bg); 
+        background-color: #0C5449;
+      }
+header { 
+  /* padding: 24px;  */
+  background: #f3f5f7; 
+  /* border-bottom: 1px solid #e5e7eb;  */
+  background-color: #06493D;
+  color: white;
+}
+button:hover {
+  cursor: pointer;
+}
+h3 {
+  font-size: 1.5rem;
+}
+
+header h1 { 
+  margin: 0 0 4px; 
+  font-size: 28px; 
+}
+header p { 
+  margin: 0; 
+  color: var(--muted); 
+}
+.head-cont {
+  display: flex;
+  gap:55vw;
+  font-size: 1.5vw;
+}
+.nav-cont {
+  display: flex;
+  gap: 2vw;
+  font-size: 1vw;
+}
+nav { 
+  padding: 12px 24px; 
+  background:#fff; 
+  border-bottom:1px solid #eee; 
+  display:flex; 
+  gap:12px; 
+  flex-wrap:wrap;
+background-color: #06493D;
+color: white;
+display: none; }
+nav a { text-decoration:none; 
+  color:var(--brand); 
+  padding:6px 10px; 
+  border-radius:8px; }
+nav a:hover { 
+  background:#eef6f0; }
+main { 
+  /* max-width: 1100px;  */
+  /* margin: 24px auto;  */
+  /* padding-left: 4vw;
+  padding-right: 4vw; */
+background-color: #0C5449; 
+color: white;
+}
+
+
+article h1 { font-size: 30px; margin: 0 0 10px; }
+article .meta { color: var(--muted); margin-bottom: 20px; font-size: 14px; }
+/* footer { margin-top: 60px; padding: 24px; text-align:center; color: var(--muted); border-top:1px solid #eee; } */
+/* img { max-width: 100%; height: auto; } */
+/* iframe { max-width: 100%; } */
+pre, code { background:#f7f7f7; padding:2px 4px; border-radius:4px; }
+blockquote { border-left: 4px solid #e5e7eb; margin: 16px 0; padding: 6px 12px; color:#333; background:#fafafa; }
+ul, ol { 
+  padding-left: 20px;
+  font-size: 1.2rem;
+ }
+button {
+  color: #0C5449;
+  font-size: 1vw;
+  border:2px solid #009966;
+  border-radius: 15px;
+}
+.container-main {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+  grid-auto-flow: row;
+  column-gap: 2vw;
+  padding-left: 1vw;
+  line-height: 1.3vw;
+  background-color: #0C5449;
+}
+
+.container-main-flex {
+  display: flex;
+  flex-direction: row;
+    padding-left: 1vw;
+  /* line-height: 1.3vw; */
+  background-color: #0C5449;
+  flex-wrap: wrap;
+}
+
+#container-item-section-two {
+  width: 30%;
+}
+@media (max-width:800px) {
+  .container-main-flex{
+    flex-direction: column;
+    align-items: center;
+  }
+  #map-box {
+    width: 100%;
+  }
+  .container-two {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+}
+
+@media (max-width:800px) {
+  #container-item-section-two {
+    width: 80%;
+   
+  }
+  
+.container-main > div > h1 {
+  font-size:3vw;
+}
+}
+#main_img {
+  height:100%;
+  width: auto;
+  max-width:25rem;
+  background-color:  #06493D;
+  border: 2px solid black;
+  box-shadow: 5px 4px black;
+}
+@media (max-width:800px) {
+  #main_img {
+    max-width: 95%;
+    margin-left: 1rem;
+    
+  }
+}
+.btn-1 {
+  padding: .5vw;
+  margin-bottom: .5vw;
+  border-radius: 5vw;
+  cursor: pointer;
+}
+.btn-2 {
+  padding: .8vw;
+  margin-bottom: .5vw;
+  border-radius: 1.5vw;
+  border: 1px solid #009966;
+  font-size: 1.4vw;
+  margin-top: 1vw;
+  background-color: #009966;
+  color: white;
+  cursor: pointer;
+}
+.btn-3 {
+  padding: .8vw;
+  margin-bottom: .5vw;
+  border-radius: 2.5vw;
+  border: 1px solid lightgray;
+  font-size: 1.4vw;
+  background-color: white;
+  cursor: pointer;
+}
+.container-two {
+  background-color: white;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 5vw;
+  padding-bottom: 3vw;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+@media (max-width:800px) {
+  .container-two{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.container-two > div > h1 {
+  font-size: 3vw;
+}
+
+.container-two > div > p {
+  font-size: 1.2vw;
+}
+
+.container-three {
+  background-color:#F8FAFC;
+  /* display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 4vw; */
+  height: 12vw;
+}
+.flex-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5vw;
+  flex-wrap: wrap;
+ 
+}
+.card {
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid lightgray;
+  margin-top: 1vw;
+  width: 28vw;
+  margin-bottom: 4vw;
+  /* line-height: .5vw; */
+  padding-left: 1vw;
+  padding-top: 1vw;
+}
+.card > p {
+font-size: 1vw;
+}
+.card > h3 {
+  font-size: 1.4vw;
+}
+.head-card {
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid lightgray;
+  /* margin-top: 1vw; */
+  width: 47vw;
+  margin-bottom: 4vw;
+  /* line-height: .5vw; */
+  padding-left: 1vw;
+  padding-top: 1vw;
+}
+.head-card > div > img {
+  /* height:2.5vw; */
+  background-color: azure;
+  border: 1px solid #009966;
+  border-radius: 5px;
+  margin-top: 1vw;
+}
+/* .card > img {
+  height:2.5vw;
+  background-color: azure;
+  border: 1px solid #009966;
+  border-radius: 5px;
+} */
+.container-footer {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content: space-between;
+  padding-left: 1vw;
+  padding-right: 1vw;
+  align-items: flex-end;
+
+}
+footer {
+  height:8vw;
+}
+/* .container-footer > div > h3 {
+  margin-top: 4vw;
+} */
+#prevProfiler {
+position: absolute;
+z-index: 1;
+top:1vw;
+/* width: 100%; */
+/* left:10vw; */
+right: 35vw;
+/* height: 200vw; */
+}
+
+/* #phoneNumber {
+  font-size: 2.5vw;
+  margin-bottom: 0;
+} */
+
+#map-box {
+  background-color: #90a5a3;
+  border-radius: 15px;
+  padding-top: 3vw;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  text-align: center;
+  color: #06493D;
+  width: 80%;
+  flex-basis: 40%;
+}
+
+#map-box > img {
+  background-color: #0C5449;
+  border: 1px solid green;
+  border-radius: 15px;
+}
+
+/* #map-box > h4 {
+  color: #0C544;
+} */
+
+#map-box:hover {
+  background-color: #779b96;
+  cursor: pointer;
+}
+.popup {
+  display: none;
+}
+.big {
+  position: fixed;
+  width: 100%;
+  top:2vw;
+  left: 0;
+  height: 80%;
+}
+.big-btn-1 {
+  position: fixed;
+  top:1vw;
+  left:0;
+  z-index: 1;
+}
+.big-btn-2 {
+  position: fixed;
+  top:1vw;
+  left:7vw;
+  z-index: 1;
+ 
+}
+.container-four {
+  background-color: #F8FAFC;
+  color: black;
+  display: none;
+}
+.container-five {
+  background-color: #bbf5e1;
+  color: black;
+  /* display: none; */
+}
+.phx-tag-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1vw;
+  background-color: #145a32;
+  border-radius: 5px;
+  padding: 1vw;
+  border: .2px solid white;
+  margin-bottom: 1vw;
+}
+
+.ed-card {
+  background-color: white;
+  border-radius: 16px;
+  border: 2px solid lightgray;
+  margin-top: 1vw;
+  width: 95%;
+  /* margin-bottom: 4vw; */
+  /* line-height: 1vw; */
+  padding-left: 1vw;
+  margin-left: .5vw;
+  /* padding-top: 1vw; */
+  display: grid;
+  grid-template-columns: 5% auto;
+  column-gap: 0;
+  height: 86%;
+  
+}
+
+.ed-card:hover {
+  background-color: #e5e7eb;
+}
+/* .ed-card > div > img {
+  height:1.5vw;
+  display: inline;
+  margin-top: 1.5vw;
+  background-color: azure;
+  border: 1px solid #009966;
+  border-radius: 5px;
+} */
+.ed-card > div > h3 {
+  margin-bottom: 0;
+}
+.ed-card > div > p {
+  margin-top: 0;
+  color: gray;
+}
+.prov-card-cont {
+   display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4vw;
+  flex-wrap: wrap;
+}
+
+ @media only screen and (max-width: 768px) {
+      .prov-card-cont {
+        flex-direction: column;
+      }
+
+      .card {
+        width: 90%;
+        
+      }
+    }
+.prov-card-cont > div > p {
+  color: #009966;
+}
+.pat-card-cont {
+   display:flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items:start;
+  gap: 4vw;
+  flex-wrap: wrap;
+}
+
+.pat-card-cont > div > p {
+color: #009966;
+}
+.prov-ed-cont {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1vw;
+  row-gap: 0;
+}
+.pat-ed-cont {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 1vw;
+  row-gap: 0;
+}
+  @media only screen and (max-width: 768px) {
+      .prov-ed-cont {
+        grid-template-columns: 1fr; /* Single column for mobile */
+        align-content: center;
+      }
+     .pat-ed-cont {
+      grid-template-columns: 1fr;
+      align-items: center;
+     }
+      .ed-card {
+        width:98%;
+      }
+    }
+
+.forms {
+  display: none;
+}
+
+#mapBig {
+  border: 2px solid #009966;
+}
+/* .hidden {
+  display: none;
+} */
+</style>
+</head>
+<body>
+<header class="head-cont">
+  <div>
+    <h1>WAYNE STATE UNIVERSITY</h1>
+  </div>
+  <!-- <div class="nav-cont">
+    <div>About</div>
+    <div>Services</div>
+    <div>Contact</div>
+  </div> -->
+</header>
+<nav>
+  <h2>Perinatal Oral Health Portal</h2>
+  <a href="index.html">Home</a>
+  
+</nav>
+<main>
+<div class="container-main-flex">
+  <div><img src="./Program Logo (1).png" id="main_img"  ></div>
+  <div id="container-item-section-two" style="margin-left: 2vw;">
+    
+    <h1 style="font-size: 2rem;">Start Strong</h1>
+    <h3 style="font-size: 1rem;">Dental visits are <b>safe</b> and <b>recommended</b> for a healthy pregnancy.</h3>
+    
+    
+      <button class="btn-3" onclick="openDiv('section-4');patScroll()" style="font-size:1rem;">Patient information -></button><br>
+      <button class="btn-2" onclick="openDiv('section-5');providerScroll()" style="font-size: 1rem;">Provider information -></button>
+    
+  </div>
+  <div id="map-box" onclick="openMap()" style="background-image: url(./mhumappipeline_htn_2025Sept29_2.png);background-size: cover;background-repeat: no-repeat;background-blend-mode: lighten;">
+    <img src="./map.png">
+    <h3>Find a clinic near you</h3>
+  <h4 onclick="openMap()">Open the map tool</h4></div>
+
+</div>
+</main>
+<div id="section-2" class="container-two">
+  <div><h1 style="font-size: 2rem;">Why is oral health in pregnancy so important?</h1>
+  <button onclick="openDiv('section-4');patScroll()" style="font-size: 1rem;" class="btn-3">Patient Information -></button>
+<button class="btn-2" onclick="openDiv('section-5');providerScroll()" style="font-size: 1rem;">Provider Information -></button>
+</div>
+  <div><p style="font-size: 1.5rem;">Healthy mouths reduce gum disease and support healthy birth outcomes. Evidence shows that dental care - including x-rays with shielding, local anesthetics, antibiotics when indicated - is safe through pregnancy.<ul>
+    <li>Lower risk of tooth decay</li>
+    <li>Fewer missed days</li>
+    <li>Early childhood cavity</li>
+  </ul></p></div>
+</div>
+<!-- <div id="section-3" class="container-three" style="display: none;">
+  <div class="flex-container">
+    <div class="card"><img src="./Form.png"><h3>Patient Handouts</h3><p>Download pregnancy safe care instructions</p></div>
+    <div class="card"><img src="./Form.png"><h3>Provider forms</h3><p>Screening checklist, pharmacology, referal</p></div>
+    <div class="card"><img src="./Form.png"><h3>Detroit map tool</h3><p>Locate clinics and filtered services</p></div>
+  </div>
+</div> -->
+<div id ="section-4" class="container-four forms">
+<div >
+  <button onclick="patClose()" style="height: 50%;font-size:1rem">Close</button>
+  <h2 style="margin-left: 1vw;">Patient forms</h2>
+</div>
+<p style="margin-left: 1vw;">Downloadable handouts (PDF). Cite: Wilson EH, Farrell C, Zielinski R, Gonik B. <i>J Matern Fetal Neonatal.</i> 2017; 30(9):1089-1091. doi:10.1080/14767058.2016.1204291 </p>
+<div class="pat-card-cont" style="margin-left: 1vw;">
+   <div class="head-card "><div style="display: grid; grid-template-columns: 8% auto; align-content: start; column-gap: 1px;"><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"><h3 style="font-size: 1.3rem;margin-left: 1rem;">Pregnancy & Dental Care - Patient Information</h3></div>
+    <p><img src="./DL.png" height="25vw" width="25vw"><span style="color: #009966;margin-bottom: 3vw;">Download PDF</span></p></div>
+    <div class="head-card"><div style="display: grid; grid-template-columns: 8% auto; align-content: center; column-gap: 1px;"><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"><h3 style="font-size: 1.3rem;margin-left: 1rem;">Your Dental Visit During Pregnancy - What To Expect</h3></div>
+    <p><img src="./DL.png" height="25vw" width="25vw"><span style="color: #009966;margin-bottom: 3vw;">Download PDF</span></p></div>
+  </div>
+<h2 style="margin-left: 1vw;">Education materials</h2>
+<div class="prov-ed-cont">
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Protect Tiny Teeth: Resources for Families</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: 1vw;margin-left: .5rem;">American Academy of Pedriatics - aap.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Brushing for Two: How Oral Health During Pregnancy <br>Can Affect Your Baby</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: .5rem;">HealthyChildren.org(AAP) - healthchildren.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Brushing Up on Oral Health - Never Too Early to Start</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">HealthyChildren.org (AAP) - healthchildren.org</p>
+    </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Dental Health During Pregnancy</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">ADA MouthHealthy - mouthhealthy.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Pregnancy and Oral Health Facts</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">CDC - cdc.gov</p>
+    </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <div>
+            <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Protect Tiny Teeth (Consumer Overview)</h3>
+          </div><div><p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p></div>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">HealthyChildren.org (AAP) - healthychildren.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Michigan State Oral Health Plan (2025) - Full Text (PDF)</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">MDHHS</p>
+    </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1.2rem;margin-left: .5rem;">Brushing Up on Oral Health: Never Too Early to Start</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="margin-top: 0;font-size: 1rem;margin-left: .5rem;">WIC Works - wicworks.fns.usda.gov</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div id="section-5" class="container-five forms">
+  <button onclick="provClose()" style="height: 50%;font-size: 1rem;">Close</button>
+  <h2 style="margin-left: 1vw;">Provider forms</h2>
+  <p style="margin-left: 1vw;">Program branded clinic forms to print or save as PDF</p>
+  <div class="prov-card-cont">
+   <div class="card"><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"><h3 style="font-size:1.3rem">Screening Checklist</h3><p style="font-size: 1rem;"><img src="./printer.png" height="20vw" width="20vw" > &nbsp;View & Print </p></div>
+    <div class="card"><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"><h3 style="font-size:1.3rem">Pharamacological Considerations</h3><p style="font-size: 1rem;"><img src="./printer.png" height="20vw" width="20vw" > &nbsp;View & Print</p></div>
+    <div class="card"><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"><h3 style="font-size:1.3rem">Referral Form</h3><p style="font-size: 1rem;"><img src="./printer.png" height="20vw" width="20vw" > &nbsp;View & Print</p></div>
+  </div>
+  <h2 style="margin-left: 1vw;">Education materials</h2>
+  <div class="prov-ed-cont">
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+    <div>
+      <div style="display: flex; flex-direction: row;justify-content: space-between;">
+        <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Oral Health Care During Pregnancy and Through <br>the Lifespan (committee opinion)</h3>
+        <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+      </div>
+      <p style="margin-top: 0;font-size: 1rem;margin-left: 1rem;">Download pregnancy safe care instructions</p></div></div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Talking to Pregnant Women about Oral Health <br>(Conversation Tips for HCPs)</h3>
+          <p style="color: #009966;font-size: 1rem; margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: 1rem;">Screening checklist, pharmacology, referal</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+    <div>
+      <div style="display: flex; flex-direction: row;justify-content: space-between;">
+        <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Oral Health Campaign Toolkit (Protect Tiny Teeth)</h3>
+        <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+      </div>
+      <p style="margin-top: 0;font-size: 1rem;margin-left: 1rem;">AAP - aap.org</p></div></div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="font-size: 1rem;margin-left: 1rem;">Pregnancy(Oral Health Topics)</h3>
+          <p style="color: #009966; font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: 1rem;">ADA - ada.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+    <div>
+      <div style="display: flex; flex-direction: row;justify-content: space-between;">
+        <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Oral Health Care During Pregnancy - National<br> Consensus Statement (PDF)</h3>
+        <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+      </div>
+      <p style="margin-top: 0;font-size: 1rem;margin-left: 1rem;">OHRC(Georgetown) - mchoralhealth.org</p></div></div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="font-size: 1rem;margin-left: 1rem;">Bright Futures: Oral Health - Pocket Guide (Web) </h3>
+          <p style="color: #009966; font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: 1rem;">Bright Futures / MCH Oral Health - mchoralhealth.org</p>
+      </div>
+    </div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+    <div>
+      <div style="display: flex; flex-direction: row;justify-content: space-between;">
+        <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Bright Futures Guidelines & Pocket Guide</h3>
+        <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+      </div>
+      <p style="margin-top: 0;font-size: 1rem;margin-left: 1rem;">Bright Futures - aap.org</p></div></div>
+    <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="margin-bottom: 0;font-size: 1rem;margin-left: 1rem;">Michigan State Oral Health Plan (2025) - Full Text <br>(PDF)</h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: 1rem;">MDHHS</p>
+      </div>
+    </div>
+     <div class="ed-card">
+      <div><img src="./Form.png" height="40rem" width="40rem" style="background-color: azure;border: 1px solid #009966;border-radius: 5px;margin-top:1rem;"></div>
+      <div>
+        <div style="display: flex; flex-direction: row;justify-content: space-between;">
+          <h3 style="font-size: 1rem;margin-left: 1rem;">Brushing Up on Oral Health: Never Too Early to Start </h3>
+          <p style="color: #009966;font-size: 1rem;margin-right: 1rem;">Open &nbsp;<img src="./open.png" height="14vw" width="14vw"></p>
+        </div>
+        <p style="font-size: 1rem;margin-left: 1rem;">WIC Works - wicworks.fns.usda.gov</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+<footer class="container-footer">
+  <div id="phoneNumber" style="display: grid;grid-template-columns: auto auto;align-items: center;">
+    <div><img src="phone.png" width="45vw" height="45vw"></div>
+    <div>
+      <h2 style="font-size: 2vw;">333-555-5555</h2>
+    </div>
+  </div>
+  <div><h3 style="font-size: 1.5vw;">Need help scheduling a dental visit? Our coordinators can connect you to <br>pregnancy-safe care</h3></div>
+  <div><div class="phx-tag-container" style="font-size: 1.2vw;">
+    <div style="margin-top: .6vw;">PHOENIX</div>
+    <div style="color:#8CC8B1;">Program <br> Partner</div>
+  </div></div>
+</footer>
+<div id="prevProfiler" class="popup">
+  <div style="display: grid; width: 32vw;margin-top: 2vw;">
+    <div><button onclick="openProfiler()" id="close">Close Profiler</button><button onclick="expand()" id="expand">Expand</button></div>
+    <iframe src="https://phoenix-data.wayne.edu/map/allmetrics/bphigh/all%20data/tract/mxm?comparisonmetric=teethlost&geo=tract26163531300&state=state26&parentgeolevel=county&zoom=9.17" height="400vw" width="200%"  id="frame"></iframe>
+  </div>
+  
+</div>
+<div id="mapBig" class="big popup" style="background-image: url(./mhumappipeline_htn_2025Sept29.png);background-size: cover;background-repeat: no-repeat;"><button onclick="openMap()">Close</button></div>
+<script>
+  function openMap() {
+    var x = document.getElementById("mapBig");
+    x.classList.toggle("popup");
+  }
+  function openProfiler() {
+    var p = document.getElementById("prevProfiler");
+    p.classList.toggle("popup");
+  }
+
+  // function showPatient() {
+  //   var x = document.getElementById("section-4");
+  //   x.style.display = "block";
+  // }
+
+  // function showProvider() {
+  //   var x = document.getElementById("section-5");
+  //   x.classList.toggle("hidden");
+
+  // }
+
+  function expand(){
+    x = document.getElementById("frame");
+    y = document.getElementById("close");
+    z = document.getElementById("expand");
+    x.classList.toggle("big");
+    y.classList.toggle("big-btn-1");
+    z.classList.toggle("big-btn-2");
+
+    if (z.className === 'big-btn-2') {
+      z.innerHTML = "Collapse";
+    } else {
+      z.innerHTML = "Expand";
+    }
+    
+  }
+
+  function openDiv (section) {
+    var i, forms;
+    forms = document.getElementsByClassName("forms");
+    for (i = 0; i < forms.length; i++) {
+      forms[i].style.display = "none";
+    }
+      document.getElementById(section).style.display = "block";
+
+      
+  }
+
+  function providerScroll(){
+    var x = document.getElementById("section-5");
+    x.scrollIntoView({behavior:"smooth"});
+  }
+
+  function patScroll(){
+    var x =document.getElementById("section-4");
+    x.scrollIntoView({behavior:"smooth"});
+  }
+
+  function patClose() {
+    var x = document.getElementById("section-4");
+    x.style.display ="none";
+  }
+
+  function provClose() {
+    var x = document.getElementById("section-5");
+    x.style.display = "none";
+  }
+</script>
+</html>
